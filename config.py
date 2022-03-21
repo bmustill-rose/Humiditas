@@ -1,5 +1,8 @@
 #Humiditas configuration file
 
+#A list of notes that the tuner function will play
+tunerNotes = ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']
+
 #The sequence of notes that the device plays once it is ready to use. First value is a note number and the second is a duration in MS
 startupSound = [
  ('E2', 50),
@@ -52,3 +55,4 @@ notes = {
 
 #Transforms that replace note names with frequencies in the above lists so we don't have to pass around the notes dict all the time
 startupSound = [(notes[i[0]], i[1]) for i in startupSound]
+tunerNotes = [notes[i] for i in tunerNotes]
