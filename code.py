@@ -3,6 +3,9 @@ import time
 from adafruit_clue import clue
 
 import config
+import utils
+
+utils.playStartupSound(clue, config.startupSound)
 
 while True:
  if clue.button_a and clue.button_b: print("both")

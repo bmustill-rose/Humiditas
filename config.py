@@ -3,12 +3,12 @@
 
 #The sequence of notes that the device plays once it is ready to use. First value is a note number and the second is a duration in MS
 startupSound = [
- ('E2', 50),
- ('A2', 50),
- ('D3', 50),
- ('G3', 50),
- ('B3', 50),
- ('E4', 100)
+ ('E2', 0.05),
+ ('A2', 0.05),
+ ('D3', 0.05),
+ ('G3', 0.05),
+ ('B3', 0.05),
+ ('E4', 0.1)
 ]
 
 #Don't change anything below this line
@@ -52,4 +52,4 @@ notes = {
 }
 
 #Transforms that replace note names with frequencies in the above lists so we don't have to pass around the notes dict all the time
-startupSound = [(notes[i[0]], i[1]) for i in startupSound]
+startupSound = [(round(notes[i[0]]), i[1]) for i in startupSound]
