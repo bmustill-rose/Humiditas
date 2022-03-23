@@ -1,8 +1,8 @@
 #Humiditas configuration file
 
 noteDigitMappings = [
- ('D7', 0.1, 0.1),
- ('A7', 0.1, 0.1)
+ ('D7', 0.1, 0.2),
+ ('A7', 0.2, 0.2)
 ]
 
 #The sequence of notes that the device plays once it is ready to use. First value is a note number and the second is a duration in MS
