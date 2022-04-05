@@ -1,11 +1,25 @@
-#Humiditas configuration file
+#This is the Humiditas configuration file.
+#When editing values in this file please pay particular attention to preserving the formatting - E.G. indentation, punctuation etc.
+#If after editing this file your device becomes non-functional or functions in a way that is unexpected, simply replace it with a fresh copy from the Humiditas website, confirm that it is once again functional and attempt to make the change once again.
+#Note that lines that start with the hash character (sometimes spoken as number) are comments and provide no functional purpose other than to convey supplementary information to the reader.
+
+#Note digit mappings:
+#The below values control the notes that represent tens and ones when humidity and temperature are surfaced.
+#The first set of values control the tens and the second the ones.
+#The format is:
+# ('noteNameInQuotes', durationOfNoteInSeconds, durationOfPauseAfterNoteHasBeenPlayedInSeconds)
+#Possible note values are C6 to B7 inclusive.
 
 noteDigitMappings = [
  ('D7', 0.1, 0.2),
  ('A7', 0.2, 0.2)
 ]
 
-#The sequence of notes that the device plays once it is ready to use. First value is a note number and the second is a duration in MS
+#The startupSound is the sequence of notes that the device plays when it is ready to use.
+#The format is:
+# ('noteNameInQuotes', durationOfNoteInSeconds)
+#Possible note values are C6 to B7 inclusive.
+
 startupSound = [
  ('D6', 0.05),
  ('F#6', 0.05),
