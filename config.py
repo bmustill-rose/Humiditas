@@ -27,6 +27,17 @@ startupSound = [
  ('D7', 0.1)
 ]
 
+#textColour determines the colour of the text that is printed to the display.
+#Format:
+#(redValue, greenValue, blueValue)
+#Where the above values are between 0 and 255 inclusive.
+#The default is yellow.
+textColour = (255, 255, 0)
+
+#textSize determines the size of the text that is printed to the display.
+#Increase this to increase the size and decrease it to decrease it.
+textSize = 15
+
 #Don't change anything below this line
 notes = {
  "C6": 1047,

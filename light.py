@@ -1,6 +1,8 @@
 import time
 
-def lightProbe(clue):
+def lightProbe(clue, display):
+ display[0].text="light"
+ display.show()
  time.sleep(0.5)
  while True:
   if clue.button_a or clue.button_b: break
