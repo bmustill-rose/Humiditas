@@ -1,6 +1,8 @@
+import json
 import time
 
 def lightProbe(clue, display):
+ print(json.dumps({'name': 'light', 'value': 'na'}))
  display[0].text="light"
  display.show()
  time.sleep(0.5)
