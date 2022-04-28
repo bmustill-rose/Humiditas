@@ -1,0 +1,157 @@
+Humiditas
+
+An accessible humidity sensor + more based on the Adafruit Clue development board
+
+Introduction:
+
+Humiditas is an accessible humidity, temperature and light sensor based on the Adafruit Clue development board.
+
+Features:
+
+Senses humidity, temperature and light
+Communicates readings through different tones (by default d's represent tens and a's represent ones, see above demo for a working example) and through easy to see large print on its built-in screen
+Outputs JSON encoded readings over serial for integration into other systems
+Highly configurable
+Possible to power over micro-USB or an optional battery pack (3X AAA)
+Easy to build at home with 0 hardware assembly required for basic functionality; optional protective case only requires 4 screws and 4 nuts to assemble
+
+Getting Started:
+
+This document should contain all the information you'll need to get started building your own Humiditas or to start using one that has been built for you.
+
+If you have a prebuilt Humiditas, skip to the How to Use section. If not please continue reading.
+
+Building It:
+
+What You'll Need:
+
+You'll need the following parts to build a functioning Humiditas:
+
+An Adafruit Clue development board:
+UK: https://thepihut.com/products/adafruit-clue-nrf52840-express-with-bluetooth-le-alpha?variant=31553680048190&currency=GBP
+US: https://www.adafruit.com/product/4500
+A micro-USB cable for initial flashing, configuration changes and optionally to power the device
+
+The following parts are optional but recommended:
+
+If you want to power Humiditas using batteries you'll need a battery box with a JST connector that holds 3X AAA batteries:
+UK: https://thepihut.com/products/3-x-aaa-battery-holder-with-on-off-switch-and-2-pin-jst
+US: https://www.adafruit.com/product/727
+If you'll be travelling with your Humiditas or just want some extra protection I'd recommend purchasing a case:
+UK: https://thepihut.com/products/clear-acrylic-enclosure-hardware-kit-for-adafruit-clue
+US: https://www.adafruit.com/product/4675
+
+Basic Clue Layout Description:
+
+This description assumes that the top surface of the Clue is facing upwards.
+
+Top Surface:
+
+Moving from left to right:
+
+The first button is button a
+The square shape to the right is a screen
+The rightmost button is button b
+
+Back Edge:
+
+Moving from left to right:
+
+The first connector is for connecting the above-mentioned battery pack
+The button is a reset button. Press it once to reset the Clue and twice in quick succession to modify the bootloader
+The micro-USB port is used to both power and program the Clue
+
+Flashing Circuit Python to The Clue:
+
+Before Humiditas can be installed on the Clue you first need to flash it with a set of software that enables support for CircuitPython, the programming language Humiditas is written in:
+
+1. Extract the Humiditas-1.0.zip file.
+2. Connect the Clue to a computer. It should show up as a removable drive.
+3. Press the reset button twice in quick succession. If you've done it correctly the Clue will disconnect and reconnect, after which you should have a new removeable drive called clueboot.
+4. Navigate to the CircuitPython folder that you just extracted and copy the adafruit-circuitpython-clue_nrf52840_express-en_GB-7.2.3.uf2 file to the clueboot drive, leaving the rest of the files intact. It should disconnect and reconnect.
+
+Congratulations. The first (and hardest) stage of installation is now complete.
+
+Installing Humiditas on the Clue:
+
+Now that the Clue is running the software required to run CircuitPython code it's time to install Humiditas itself:
+
+1. Navigate to the Humiditas folder you just extracted and copy all of the files and folders to the Clue (pasting the entire contents of the folder at once will be fine). The Clue will disconnect and reconnect as part of this process which will most likely take a little longer than most other copy operations.
+
+If at this point you hear a short arpeggio from the Clue congratulations, you've successfully built your very own Humiditas and the device is now ready to use.
+
+If the Clue makes no sound at all please carry out all the steps again, starting from the Flashing Circuit Python to The Clue section. If after attempting these steps again it still doesn't work, please file an issue.
+
+The Case:
+
+This section is a work in progress; suggestions to make it more readable are very much appreciated.
+
+Case Description:
+
+The case contains 6 distinct parts, totalling 14 physical pieces altogether:
+
+4X flathead screws
+4X nuts
+1X top piece
+1X bottom piece
+2X small rectangles with 2 rounded corners
+2X larger rectangles with 2 rounded corners
+
+Building it:
+
+1. Lay everything out on a flat surface that has enough space for you to sensibly carry out the build.
+2. Remove the paper stuck to the 4 rectangular pieces.
+3. Experiment by sandwiching the bottom piece, the Clue and the top piece (the one with 2 holes for the buttons in it) together temporarily in your hands so you know roughly what it should feel like once you've built it properly. Make sure that the bottom piece is oriented such that the cut-outs match the ports on the back edge.
+4. Take the 4 screws and arrange them with their tips facing up in roughly the same pattern as the screw holes in the top piece. Gently slide the top piece over the screws. 
+5. Take the 2 smaller rectangles and slide them over the screws, taking care to ensure that the rounded corners are facing outwards.
+6. Orient the Clue so that button a, the screen and button b are facing downwards and place it in between the pieces you installed in the previous step. Note that at this stage the Clue won't sit entirely flat but at a minimum button a and button b should have aligned nicely with their cut-outs in the top piece.
+7. Take the 2 larger rectangles and slide them over the screws, taking care to ensure that the rounded corners are facing outwards.
+
+The remaining steps should be carried out with particular caution. If you encounter any resistance stop and reassess the situation as irreversible damage to the case can be caused from now on.
+
+8. Gently slide the bottom piece over the screws, once again taking particular care to orient the cut-outs with the ports on the back edge of the Clue as per step 3. Whilst the bottom piece is yet to be secured in place it should never the less not be possible to move it without lifting it up. If it's not 		 completely flat you've most likely oriented it incorrectly.
+9. At this stage it should still be possible to feel a small amount of each of the screws poking out of the top of the assembly. If this isn't the case or one screw has less of the tip exposed than the others, please restart from step 4.
+10. For each of the screws, place a nut over the remaining tip and move your fingers in a clockwise motion to tighten it into place as much as possible. Note that it will not be possible to fully tighten them at this stage however.
+11. Flip the assembly over. The top surface should now be facing upwards, complete with its 2 buttons, the screen and the 4 screws we installed in step 4. At this stage if any of the nuts fall off, please repeat steps 9 and 10.
+12. Use a flathead screwdriver to tighten the screws. You may wish to move the Clue away from the flat surface at this stage. Take care not to overtighten: once tightening becomes hard stop.
+13. Explore the underside of the assembly paying particular attention to the nuts. At this stage there should be an identical amount of screw tip protruding from each of them. If not please repeat step 12.
+
+Congratulations! You've just finished assembling the case and your Humiditas is now ready to use!
+
+How To Use:
+
+Humiditas surfaces its readings via its speaker, screen and serial port, a combination of the first 2 being how most people will use it in practice.
+
+Typical Usage and Understanding Output:
+
+When Humiditas is powered on you will hear a short arpeggio (a series of 4 notes) which indicates that it is ready to use. A ready message is also printed to the screen. At this point you are able to do one of the following:
+
+Press button a to read humidity
+Press button b to read temperature
+Press button a and b at the same time to launch a basic light probe. Press either button once done to exit
+
+Humiditas uses a selection of tones to surface humidity and temperature readings, with different pitches representing different elements of the number. Readings are also displayed on its screen.
+
+Consider a humidity reading of 45% as an example:
+
+A total of 9 tones will be emited: 4 lower tones (approximately D7) and 5 higher tones (approximately A7)
+The lower tones represent the tens. In this instance there are 4 of them: 4 * 10 = 40, so we know the first part of the reading is 40
+The higher tones represent the ones. In this instance there are 5 of them: 5 * 1 = 5, so we know the second part of the reading is 5
+Now we add the 2 parts of the reading together: 40 + 5 = 45, therefore the humidity reading is 45%
+
+Using Over Serial:
+
+It's also possible to obtain readings (minus the light probe, for now) over serial. When connected to a computer Humiditas will show up as a USB serial device which can be connected to using software such as PuTTY. Speed is 115200 baud.
+
+Making Changes:
+
+Many of the features of Humiditas are configurable via the config.py file that is present on the removeable drive that shows up when you connect it to a computer.
+
+The following features are configurable:
+
+The tones that represent tens and ones along with their durations and the durations of the pauses between them
+The start-up sound
+The colour of the text printed to the screen
+The size of the text printed to the screen
+
+When editing this file it is strongly recommended that a plain text editor such as Notepad be used for best results.
