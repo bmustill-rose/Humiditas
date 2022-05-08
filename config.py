@@ -27,6 +27,10 @@ startupSound = [
  ('D7', 0.1)
 ]
 
+#useDisplay determines if the various readings will be printed to the display or not.
+#Setting the value to False increases performance and may also improve battery life.
+useDisplay = True
+
 #textColour determines the colour of the text that is printed to the display.
 #Format:
 #(redValue, greenValue, blueValue)

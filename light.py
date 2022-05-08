@@ -5,8 +5,10 @@ from adafruit_apds9960.apds9960 import APDS9960
 from adafruit_apds9960 import colorutility
 
 def lightProbe(clue, display):
- display[0].text="NA"
- display.show()
+ time.sleep(0.25)
+ if display:
+  display[0].text="NA"
+  display.show()
  apds = APDS9960(board.I2C())
  apds.enable_color = True
  running = True
@@ -17,8 +19,8 @@ def lightProbe(clue, display):
   clue.stop_tone()
   r, g, b, c = apds.color_data
   lux = colorutility.calculate_lux(r, g, b)
-  print(json.dumps({'name': 'light', 'value': lux}))
   clue.start_tone(scaleAndRound(lux))
+  print(json.dumps({'name': 'light', 'value': lux}))
  clue.stop_tone()
 
 def scaleAndRound(val):
