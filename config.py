@@ -27,6 +27,18 @@ startupSound = [
  ('D7', 0.1)
 ]
 
+#The sleepSound is the sequence of notes that the device plays just before it goes into its powersaving mode.
+#The format is:
+# ('noteNameInQuotes', durationOfNoteInSeconds)
+#Possible note values are C6 to B7 inclusive.
+
+sleepSound = [
+ ('D7', 0.05),
+ ('A6', 0.05),
+ ('F#6', 0.05),
+ ('D6', 0.1)
+]
+
 #useDisplay determines if the various readings will be printed to the display or not.
 #Setting the value to False increases performance and may also improve battery life.
 useDisplay = True
@@ -72,4 +84,5 @@ notes = {
 
 #Transforms that replace note names with frequencies in the above lists so we don't have to pass around the notes dict all the time
 startupSound = [(notes[i[0]], i[1]) for i in startupSound]
+sleepSound = [(notes[i[0]], i[1]) for i in sleepSound]
 noteDigitMappings = [(notes[i[0]], i[1], i[2]) for i in noteDigitMappings]

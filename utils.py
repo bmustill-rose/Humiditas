@@ -18,6 +18,6 @@ def repeatTone (clue, tone, times):
   clue.play_tone(tone[0], tone[1])
   time.sleep(tone[2])
 
-def playStartupSound(clue, sequence):
+def playSoundSequence(clue, sequence):
  for note in sequence:
   clue.play_tone(note[0], note[1])
