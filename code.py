@@ -9,7 +9,7 @@ import utils
 
 display = clue.simple_text_display(colors=[config.textColour], text_scale=config.textSize) #Have to init and blit the display even if we don't want to use it to prevent REPL output being shown
 if config.useDisplay: display[0].text = "Ok"
-time.sleep(0.5)
+time.sleep(0.1)
 utils.playSoundSequence(clue, config.startupSound)
 print(json.dumps("Ok"))
 
