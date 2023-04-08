@@ -16,7 +16,7 @@ print(json.dumps("Ok"))
 runningTime = time.monotonic()
 
 while True:
- if time.monotonic() > runningTime+60: utils.goToSleep(clue, config.sleepSound)
+ if time.monotonic() > runningTime+config.sleepTime: utils.goToSleep(clue, config.sleepSound)
  display.show()
  if clue.button_a and clue.button_b:
   light.lightProbe(clue, display if config.useDisplay else None);

@@ -54,6 +54,9 @@ textColour = (255, 255, 0)
 #Increase this to increase the size and decrease it to decrease it.
 textSize = 15
 
+#sleepTime determines how many seconds of inactivity causes Humiditas to enter into a deep sleep mode.
+sleepTime = 60
+
 #Don't change anything below this line
 notes = {
  "C6": 1047,
