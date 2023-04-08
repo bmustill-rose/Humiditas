@@ -21,3 +21,14 @@ def repeatTone (clue, tone, times):
 def playSoundSequence(clue, sequence):
  for note in sequence:
   clue.play_tone(note[0], note[1])
+
+def goToSleep(clue, sleepSound):
+ import alarm
+ import board
+ playSoundSequence(clue, sleepSound)
+ #Have to deinit the buttons before they can be used to wake from alarms
+ clue._a.deinit()
+ clue._b.deinit()
+ paa = alarm.pin.PinAlarm(pin=board.BUTTON_A, value=False, pull=True) 
+ pab = alarm.pin.PinAlarm(pin=board.BUTTON_A, value=False, pull=True) 
+ alarm.exit_and_deep_sleep_until_alarms(paa, pab)
