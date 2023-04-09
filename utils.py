@@ -1,6 +1,15 @@
 import json
 import time
 
+def splitNumber(num):
+ from collections import OrderedDict
+ return OrderedDict([
+  ('thousands', (num // 1000) % 10),
+  ('hundreds', (num // 100) % 10),
+  ('tens', (num // 10) % 10),
+  ('ones', num % 10)
+   ])
+
 def surfaceSensorData(clue, display, data, noteDigitMappings):
  if display:
   display[0].text=str(data['value'])
@@ -10,13 +19,14 @@ def surfaceSensorData(clue, display, data, noteDigitMappings):
  print(json.dumps(data))
 
 def digitsToBeeps(clue, number, mappings):
- for pos, num in enumerate(str(number)):
-  repeatTone(clue, mappings[pos], int(num))
+ split = splitNumber(number)
+ for units, number in split.items():
+  repeatTone(clue, mappings[units], number)
 
-def repeatTone (clue, tone, times):
+def repeatTone (clue, toneData, times):
  for i in range(0, times):
-  clue.play_tone(tone[0], tone[1])
-  time.sleep(tone[2])
+  clue.play_tone(toneData[0], toneData[1])
+  time.sleep(toneData[2])
 
 def playSoundSequence(clue, sequence):
  for note in sequence:
@@ -30,5 +40,5 @@ def goToSleep(clue, sleepSound):
  clue._a.deinit()
  clue._b.deinit()
  paa = alarm.pin.PinAlarm(pin=board.BUTTON_A, value=False, pull=True) 
- pab = alarm.pin.PinAlarm(pin=board.BUTTON_A, value=False, pull=True) 
+ pab = alarm.pin.PinAlarm(pin=board.BUTTON_B, value=False, pull=True) 
  alarm.exit_and_deep_sleep_until_alarms(paa, pab)

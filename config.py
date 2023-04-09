@@ -4,16 +4,17 @@
 #Note that lines that start with the hash character (sometimes spoken as number) are comments and provide no functional purpose other than to convey supplementary information to the reader.
 
 #Note digit mappings:
-#The below values control the notes that represent tens and ones when humidity and temperature are surfaced.
-#The first set of values control the tens and the second the ones.
+#The below values control the notes that represent thousands, hundreds, tens and ones when humidity, temperature and air quality are surfaced.
 #The format is:
-# ('noteNameInQuotes', durationOfNoteInSeconds, durationOfPauseAfterNoteHasBeenPlayedInSeconds)
+# 'units': ['noteNameInQuotes', durationOfNoteInSeconds, durationOfPauseAfterNoteHasBeenPlayedInSeconds]
 #Possible note values are C6 to B7 inclusive.
 
-noteDigitMappings = [
- ('D7', 0.1, 0.2),
- ('A7', 0.2, 0.2)
-]
+noteDigitMappings = {
+ 'thousands': ['F#6', 0.1, 0.2],
+ 'hundreds': ['A6', 0.1, 0.2],
+ 'tens': ['D7', 0.1, 0.2],
+ 'ones': ['A7', 0.2, 0.2]
+}
 
 #The startupSound is the sequence of notes that the device plays when it is ready to use.
 #The format is:
@@ -88,4 +89,4 @@ notes = {
 #Transforms that replace note names with frequencies in the above lists so we don't have to pass around the notes dict all the time
 startupSound = [(notes[i[0]], i[1]) for i in startupSound]
 sleepSound = [(notes[i[0]], i[1]) for i in sleepSound]
-noteDigitMappings = [(notes[i[0]], i[1], i[2]) for i in noteDigitMappings]
+for k in noteDigitMappings.keys(): noteDigitMappings[k][0] = notes[noteDigitMappings[k][0]]
