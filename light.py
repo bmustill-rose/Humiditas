@@ -1,4 +1,3 @@
-import json
 import time
 import board
 from adafruit_apds9960.apds9960 import APDS9960
@@ -20,7 +19,7 @@ def lightProbe(clue, display):
   r, g, b, c = apds.color_data
   lux = colorutility.calculate_lux(r, g, b)
   clue.start_tone(scaleAndRound(lux))
-  print(json.dumps({'name': 'light', 'value': lux}))
+  print({'name': 'light', 'value': lux})
  clue.stop_tone()
 
 def scaleAndRound(val):

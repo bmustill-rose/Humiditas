@@ -1,4 +1,3 @@
-import json
 import time
 
 def splitNumber(num):
@@ -16,7 +15,7 @@ def surfaceSensorData(clue, display, data, noteDigitMappings):
   display.show()
   time.sleep(0.005)
  digitsToBeeps(clue, data['value'], noteDigitMappings)
- print(json.dumps(data))
+ print(data)
 
 def digitsToBeeps(clue, number, mappings):
  split = splitNumber(number)

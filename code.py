@@ -1,4 +1,3 @@
-import json
 import time
 
 from adafruit_clue import clue
@@ -11,7 +10,7 @@ display = clue.simple_text_display(colors=[config.textColour], text_scale=config
 if config.useDisplay: display[0].text = "Ok"
 time.sleep(0.1)
 utils.playSoundSequence(clue, config.startupSound)
-print(json.dumps("Ok"))
+print("Ok")
 
 runningTime = time.monotonic()
 
